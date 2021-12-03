@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Card } from 'react-bootstrap';
-import Pokemon from 'pokemon-images';
+import Pokemon from './pokemon-images';
 
 export default function PokemonList ({pokemon})
 {
