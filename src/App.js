@@ -10,31 +10,28 @@ function App(){
   const [nextPageUrl, setNextPageUrl] = useState()
   const [prevPageUrl, setPrevPageUrl] = useState()
   const [loading, setLoading] = useState(false)
-  const [currentImgUrl, setCurrentImgUrl] = useState("http://pokeapi.co/api/v2/pokemon")
 
   useEffect(()=>{
     setLoading(true)
     let cancel
-    axios.get(currentPageUrl, {cancelToken:new axios.CancelToken(c => cancel = c)})
+    axios.get(currentPageUrl, {cancelToken: new axios.CancelToken(c => cancel = c)})
     .then(res => {
       setLoading(false)
       setNextPageUrl(res.data.next)
       setPrevPageUrl(res.data.previous)
-      setPokemon(res.data.results.map(p=> p.name))
-      setCurrentImgUrl(res.data.results.url)
+      setPokemon(res.data.results.map(p => p.name, i => i.name))
   })
 
     return()=>cancel()
 
   }, [currentPageUrl])
 
-  function goToNextPage()
+  function gotoNextPage()
   {
     setCurrentPageUrl(nextPageUrl)
   }
 
-
-  function goToPrevPage()
+  function gotoPrevPage()
   {
     setCurrentPageUrl(prevPageUrl)
   }
@@ -43,11 +40,15 @@ function App(){
   
   return (
     <>
-      <PokemonList pokemon={pokemon}/>
-      <Pagination
-        goToNextPage={nextPageUrl ? goToNextPage : null}
-        goToPrevPage={prevPageUrl ? goToPrevPage : null}
-      />  
+    <>
+      <PokemonList pokemon={pokemon} />
+    </>
+    <div>
+          <Pagination
+          gotoNextPage={nextPageUrl ? gotoNextPage : null}
+          gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
+        />
+    </div>
     </>
   );
 }
