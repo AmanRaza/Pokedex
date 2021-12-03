@@ -1,5 +1,5 @@
 {
-  "homepage": "https://AmanRaza.github.io/Pokedex",
+  "homepage": "https://amanraza.github.io/Pokedex",
   "name": "app",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
     "react-dom": "^17.0.2",

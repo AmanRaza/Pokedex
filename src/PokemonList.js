@@ -7,7 +7,7 @@ export default function PokemonList ({pokemon})
 
     return (
         <>
-        <div class="d-flex flex-wrap justify-content-center mx-auto">
+        <div className="d-flex flex-wrap justify-content-center mx-auto">
         {pokemon.map(p => (
           <div key={p}>
           <Row xs={1} md={2} className="g-4">
